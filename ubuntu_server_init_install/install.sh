@@ -20,7 +20,7 @@ echo "Replicate ssh from root"
 rsync --archive --chown=bai:bai ~/.ssh /home/bai
 
 echo "Switching User"
-su bai
+# su bai
 sleep 5
 
 echo "Check Privileges"
