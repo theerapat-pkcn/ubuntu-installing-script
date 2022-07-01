@@ -19,9 +19,11 @@ usermod -aG sudo bai
 echo "Replicate ssh from root"
 rsync --archive --chown=bai:bai ~/.ssh /home/bai
 
+echo "Switching User"
 su bai
 sleep 5
 
+echo "Check Privileges"
 sudo -n true
 test $? -eq 0 || exit 1 "you should have sudo privilege to run this script"
 
