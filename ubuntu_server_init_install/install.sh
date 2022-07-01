@@ -19,8 +19,9 @@ usermod -aG sudo bai
 echo "Replicate ssh from root"
 rsync --archive --chown=bai:bai ~/.ssh /home/bai
 
-echo "Switching User"
-# su bai
+echo "Switching User" 
+touch /home/bai/.sudo_as_admin_successful   # To avoid promtp `See "man sudo_root" for details...`
+su bai
 sleep 5
 
 echo "Check Privileges"
@@ -41,15 +42,6 @@ sudo apt install -y docker-compose
 echo "Installing git"
 sudo apt-get install git -y
 
-echo "Installing ufw"
-sudo apt install ufw -y
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow ssh
-sudo ufw allow 22
-sudo ufw allow 2222
-sudo ufw enable -y
-
 #---- powerline font installation
 echo "Installing Powerline-fonts"
 mkdir -p $HOME/downloads
@@ -59,8 +51,8 @@ cd fonts
 bash ./install.sh
 cd ..
 rm -rf fonts
+# Replace original font setting
 sudo sed -i 's/FONTFACE="Fixed"/FONTFACE="DejaVu Sans Mono for Powerline"/g' /etc/default/console-setup
-sudo sed -i 's/FONTFACE="DejaVu Sans Mono for Powerline"/FONTFACE="Fixed"/g' /etc/default/console-setup
 cd
 #----
 
@@ -75,3 +67,13 @@ mkdir -p $HOME/.config/nvim
 
 cp nvim-init.conf $HOME/.config/nvim/init.vim
 #----
+
+
+echo "Installing ufw"
+sudo apt install ufw -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 22
+sudo ufw allow 2222
+sudo ufw enable
