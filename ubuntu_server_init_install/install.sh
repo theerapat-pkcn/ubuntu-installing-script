@@ -3,7 +3,8 @@
 # fail on error and report it, debug all lines
 set -eu -o pipefail 
 
-apt-get update && apt-get upgrade -y
+apt-get update
+# apt-get upgrade -y
 
 # Set timezone to Asia/Bangkok
 timedatectl set-timezone Asia/Bangkok
