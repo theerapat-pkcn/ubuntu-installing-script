@@ -10,7 +10,7 @@ apt-get update
 timedatectl set-timezone Asia/Bangkok
 
 echo "Create new user"
-adduser bai
+adduser --gecos bai
 # adduser --disabled-password --gecos "" bai
 
 echo "Granting Administrative Privileges"
