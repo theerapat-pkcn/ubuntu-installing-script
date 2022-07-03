@@ -1,4 +1,5 @@
 syntax on
+syntax enable
 
 set noerrorbells
 set nowrap
@@ -15,22 +16,13 @@ set softtabstop=2
 set nosmartindent
 set expandtab
 set mouse=a
-
+set splitbelow splitright
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 set t_Co=256
-
-noremap l h
-noremap ; j
-noremap p k
-noremap ' l
-noremap k p
-noremap K P
 
 " Install plugin by `:PlugInstall` command
 " Uninstall plugin by remove plugin inside call plug and run `:PlugClean`
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
@@ -38,6 +30,7 @@ Plug 'preservim/nerdtree'
 Plug 'phaazon/hop.nvim'
 call plug#end()
 
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 let g:airline_powerline_fonts = 1
@@ -74,19 +67,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-set splitbelow splitright
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Set spacebar as leader
-let mapleader=" "
-noremap <Leader>q :qa!<Enter>
-noremap <Leader>w :w<Enter>
-noremap <Leader>e :wq<Enter>
-noremap <C-t> :NERDTreeToggle<CR>
-
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 "" Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -94,7 +74,30 @@ autocmd VimEnter * NERDTree | wincmd p
 "        \ && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let NERDTreeShowHidden=1
 
-
 lua << EOF
     require'hop'.setup()
 EOF
+
+
+"---- Mapping
+
+" Set spacebar as leader
+let mapleader=" "
+
+" Redo
+noremap U <C-r>
+
+" Switch between pane
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+noremap <Leader>q :qa!<Enter>
+noremap <Leader>w :w<Enter>
+noremap <Leader>e :wq<Enter>
+noremap <C-t> :NERDTreeToggle<CR>
+
+noremap <Space><Space> :HopWord<Enter>
+
+"----

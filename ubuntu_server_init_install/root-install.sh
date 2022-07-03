@@ -2,6 +2,7 @@
 
 # Input
 read -p "Enter username you want to create: " username
+read -p "Enter your password: "$'\n' -s password
 
 # fail on error and report it, debug all lines
 set -eu -o pipefail 
@@ -13,7 +14,12 @@ apt-get update
 timedatectl set-timezone Asia/Bangkok
 
 echo "Create new user"
-adduser --gecos GECOS ${username}
+# quietly add a user without password
+adduser --quiet --disabled-password --gecos GECOS ${username}
+# set password
+echo "${username}:${password}" | chpasswd
+
+# adduser --gecos GECOS ${username}
 # adduser --disabled-password --gecos "" ${username}
 
 echo "Granting Administrative Privileges"
