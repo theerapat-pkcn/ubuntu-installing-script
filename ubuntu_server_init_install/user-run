@@ -40,15 +40,13 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 #---- nvim installation
 echo "    ===== Installing nvim ====="
-sudo add-apt-repository ppa:neovim-ppa/stable
+sudo add-apt-repository ppa:neovim-ppa/stable -y
 sudo apt update
 sudo apt-get install neovim -y
 
 # Create folder if not exist
 mkdir -p $HOME/.config
-mkdir -p $HOME/.config/nvim
-
-cp $SCRIPT_DIR/nvim-init.conf $HOME/.config/nvim/init.vim
+cp $SCRIPT_DIR/nvim $HOME/.config
 #----
 
 #---- Install Tmux and Tmux-autosuggested
