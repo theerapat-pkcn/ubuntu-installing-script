@@ -2,7 +2,7 @@
 
 # Input
 read -p "Enter username you want to create: " username
-read -p "Enter your password: "$'\n' -s password
+read -p "Enter your password: " -s password
 
 # fail on error and report it, debug all lines
 set -eu -o pipefail 
