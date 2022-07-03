@@ -46,12 +46,11 @@ sudo apt-get install neovim -y
 
 # Create folder if not exist
 mkdir -p $HOME/.config
-cp $SCRIPT_DIR/nvim $HOME/.config
+cp -r $SCRIPT_DIR/nvim $HOME/.config
 #----
 
 #---- Install Tmux and Tmux-autosuggested
 #----
-
 
 echo "    ===== Installing ufw ====="
 sudo apt install ufw -y
@@ -64,6 +63,6 @@ sudo ufw enable
 
 echo ""
 echo "===================== Finished ======================="
-echo "** Please run `PlugInstall` in nvim to install plugin"
+echo "** Please run PlugInstall in nvim to install plugin"
 echo "======================================================"
 echo ""
