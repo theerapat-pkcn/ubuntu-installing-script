@@ -1,25 +1,23 @@
 vim.cmd [[
   syntax enable
   syntax on
+
+  set noerrorbells
+  set nowrap
+  set noshowmode
+  set listchars=tab:»·,space:.,eol:¬
+  set list
+  set nu
+  set relativenumber
+  set undodir=~/.vim/undodir
+  set undofile
+  set nosmartindent
+  set expandtab
+  set mouse=a
 ]]
 
+-- Set by lua
 local set = vim.opt
-set.noerrorbells = true
-set.nowrap = true
-set.noshowmode = true
-set.listchars = tab:»·,space:.,eol:¬
-set.list = true
-set.nu = true
-set.relativenumber = true
-set.undodir = ~/.vim/undodir
-set.undofile = true
 set.tabstop = 2
 set.shiftwidth = 2
 set.softtabstop = 2
-set.nosmartindent = true
-set.expandtab = true
-set.mouse = a
-set.colorcolumn = 80
-set.t_Co = 256
-set.splitbelow = true
-set.splitright = true
