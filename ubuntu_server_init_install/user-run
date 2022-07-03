@@ -40,6 +40,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 #---- nvim installation
 echo "    ===== Installing nvim ====="
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
 sudo apt-get install neovim -y
 
 # Create folder if not exist
@@ -64,6 +66,6 @@ sudo ufw enable
 
 echo ""
 echo "===================== Finished ======================="
-echo "** Please run `:PlugInstall` to install nvim plugin"
+echo "** Please run `PlugInstall` in nvim to install plugin"
 echo "======================================================"
 echo ""
