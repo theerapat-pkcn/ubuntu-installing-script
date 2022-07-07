@@ -50,16 +50,20 @@ cp -r $SCRIPT_DIR/nvim $HOME/.config
 #----
 
 #---- Install Tmux and Tmux-autosuggested
+sudo apt-get install tmux -y
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/downloads/tmux-resurrect
+touch ~/.tmux.conf
+echo "run-shell ~/downloads/tmux-resurrect/resurrect.tmux" >> ~/.tmux.conf
 #----
 
-echo "    ===== Installing ufw ====="
-sudo apt install ufw -y
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow ssh
-sudo ufw allow 22
-sudo ufw allow 2222
-sudo ufw enable
+# echo "    ===== Installing ufw & enable====="
+# sudo apt install ufw -y
+# sudo ufw default deny incoming
+# sudo ufw default allow outgoing
+# sudo ufw allow ssh
+# sudo ufw allow 22
+# sudo ufw allow 2222
+# sudo ufw enable
 
 echo ""
 echo "===================== Finished ======================="
