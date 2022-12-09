@@ -93,11 +93,18 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Scrolling
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+
 noremap <Leader>q :qa!<Enter>
 noremap <Leader>w :w<Enter>
 noremap <Leader>e :wq<Enter>
 noremap <C-t> :NERDTreeToggle<CR>
 
 noremap <Space><Space> :HopWord<Enter>
+
+" At insert mode
+inoremap ii <Esc>
 
 "----
